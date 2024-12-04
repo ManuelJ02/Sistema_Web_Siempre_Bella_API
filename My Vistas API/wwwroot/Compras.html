@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realizar Compra</title>
+    <link rel="stylesheet" href="css/Compras.css">
+</head>
+<body>
+    <header>
+        <h1>Realizar Compra</h1>
+    </header>
+    <main class="compras-container">
+        <section class="form-section">
+            <h2>Formulario de Compra</h2>
+            <form id="formCompra">
+                <label for="proveedor">Proveedor:</label>
+                <select id="proveedor" required>
+                    <option value="">Selecciona un proveedor</option>
+                    <option value="ACESO COSMETICS A.S.">ACESO COSMETICS A.S.</option>
+                    <option value="QOGITA">QOGITA</option>
+                    <option value="Amelia Cosmetics Distribuciones">Amelia Cosmetics Distribuciones</option>
+                </select>
+
+                <label for="producto">Producto:</label>
+                <select id="producto" required>
+                    <option value="">Selecciona un producto</option>
+                    <option value="Lapiz labial Color Rojo">Lapiz labial Color Rojo</option>
+                    <option value="Delineador de ojos">Delineador de ojos</option>
+                    <option value="Máscara de pestañas">Máscara de pestañas</option>
+                    <option value="Lápiz de contorno de labios">Lápiz de contorno de labios</option>
+                    <option value="Protector solar en Crema 50 FPS 50ml">Protector solar en Crema 50 FPS 50ml</option>
+                </select>
+
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" required min="1">
+
+                <label for="precio">Precio:</label>
+                <input type="number" id="precio" required step="0.01" min="0">
+
+                <button id="registrarCompra">Agregar Producto</button>
+                <button id="Comprar">realizar Compra</button>
+
+            </form>
+        </section>
+
+        <section class="compras-history">
+            <h2>Historial de Compras</h2>
+            <table id="comprasTable">
+                <thead>
+                    <tr>
+                        <th>Proveedor</th>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Se llenará con JS -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Siempre Bella. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/Compras.js"></script>
+</body>
+</html>

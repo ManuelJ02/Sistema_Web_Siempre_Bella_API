@@ -1,0 +1,6 @@
+@Sistema_Web_Siempre_Bella_API_HostAddress = http://localhost:5016
+
+GET {{Sistema_Web_Siempre_Bella_API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

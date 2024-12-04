@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Inventario</title>
+    <link rel="stylesheet" href="css/Inventario.css">
+</head>
+<body>
+    <header>
+        <h1>Gestión de Inventario</h1>
+    </header>
+    <main class="inventario-container">
+        <section class="form-section">
+            <h2>Agregar Nuevo Producto</h2>
+            <form id="formProducto">
+                <label for="nombreProducto">Nombre del Producto:</label>
+                <input type="text" id="nombreProducto" required>
+
+                <label for="marca">Marca:</label>
+                <select id="marca" required></select>
+
+                <label for="categoria">Categoría:</label>
+                <select id="categoria" required></select>
+
+                <label for="precio">Precio:</label>
+                <input type="number" id="precio" required>
+
+                <button type="submit">Registrar Producto</button>
+            </form>
+        </section>
+
+        <section class="inventario-list">
+            <h2>Lista de Productos</h2>
+            <table id="productosTable">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Marca</th>
+                        <th>Categoría</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se llenará dinámicamente con JS -->
+                </tbody>
+            </table>
+        </section>
+
+        <section class="gestion-marcas">
+            <h2>Gestionar Marcas</h2>
+            <form id="formMarca">
+                <label for="nombreMarca">Nombre de Marca:</label>
+                <input type="text" id="nombreMarca" required>
+                <button type="submit">Registrar Marca</button>
+            </form>
+        </section>
+
+        <section class="gestion-categorias">
+            <h2>Gestionar Categorías</h2>
+            <form id="formCategoria">
+                <label for="nombreCategoria">Nombre de Categoría:</label>
+                <input type="text" id="nombreCategoria" required>
+                <button type="submit">Registrar Categoría</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Siempre Bella. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/Inventario.js"></script>
+</body>
+</html>

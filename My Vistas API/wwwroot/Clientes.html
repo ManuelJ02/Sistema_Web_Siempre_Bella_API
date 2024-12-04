@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+    <link rel="stylesheet" href="css/Clientes.css">
+</head>
+<body>
+    <header>
+        <h1>Gestión de Clientes</h1>
+    </header>
+    <main class="clientes-container">
+        <section class="form-section">
+            <h2>Agregar Nuevo Cliente</h2>
+            <form id="formCliente">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" required>
+
+
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" required>
+
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" required>
+
+                <button type="submit">Registrar Cliente</button>
+            </form>
+        </section>
+
+        <section class="clientes-list">
+            <h2>Lista de Clientes</h2>
+            <table id="clientesTable">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Telefono</th>
+                        <th>Cedula</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se llenará dinámicamente con JS -->
+                    <tr>
+                        <td>Juan Alberto Zeledon Centeno</td>
+                        <td>4412502010004U</td>
+                        <td>57890932</td>
+                    </tr>
+                    <tr>
+                        <td>Maria Jose Lopez Diaz</td>
+                        <td>4411706991506W</td>
+                        <td>81723250</td>
+                    </tr>
+                    <tr>
+                        <td>Alicia Mendoza</td>
+                        <td>4413007010101T</td>
+                        <td>75293001</td>
+                    </tr>
+                    <tr>
+                        <td>Gisselle Vanessa Centeno Flores</td>
+                        <td>4412809021004U</td>
+                        <td>58394732</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Siempre Bella. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/Clientes.js"></script>
+</body>
+</html>

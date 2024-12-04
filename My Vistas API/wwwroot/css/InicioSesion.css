@@ -1,0 +1,115 @@
+﻿/* Paleta pastel rosa y morado */
+:root {
+    --background-gradient: linear-gradient(135deg, #fbc8d4, #dec3f4);
+    --box-shadow: rgba(0, 0, 0, 0.2);
+    --button-bg: #d8b4ef;
+    --button-hover: #c19ae5;
+    --input-border: #e8d8f6;
+    --error-color: #f28b82;
+    --text-color: #4d4d4d;
+    --label-color: #7a709d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: var(--background-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    animation: fadeIn 1s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.login-box {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px var(--box-shadow);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+}
+
+    .login-box h1 {
+        font-size: 2rem;
+        color: var(--text-color);
+        margin-bottom: 1.5rem;
+    }
+
+.form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--label-color);
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--input-border);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+    input:focus {
+        outline: none;
+        border-color: var(--button-bg);
+        box-shadow: 0 0 5px var(--button-bg);
+    }
+
+button {
+    background-color: var(--button-bg);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    width: 100%;
+}
+
+    button:hover {
+        background-color: var(--button-hover);
+    }
+
+.error-message {
+    color: var(--error-color);
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    display: none; /* Ocultar inicialmente */
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
