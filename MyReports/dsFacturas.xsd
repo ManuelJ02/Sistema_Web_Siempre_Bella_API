@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsFacturas" targetNamespace="http://tempuri.org/dsFacturas.xsd" xmlns:mstns="http://tempuri.org/dsFacturas.xsd" xmlns="http://tempuri.org/dsFacturas.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DBSistemaSiempreBellaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DBSistemaSiempreBellaConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MyReports.Properties.Settings.GlobalReference.Default.DBSistemaSiempreBellaConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vFacturasTableAdapter" GeneratorDataComponentClassName="vFacturasTableAdapter" Name="vFacturas" UserDataComponentName="vFacturasTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DBSistemaSiempreBellaConnectionString (Settings)" DbObjectName="DBSistemaSiempreBella.dbo.vFacturas" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        NoFactura, FechaFactura, NombreCliente, CantProductos, Descripcion, Precio, SubTotalFactura, TotalFactura
+FROM            vFacturas</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NoFactura" DataSetColumn="NoFactura" />
+              <Mapping SourceColumn="FechaFactura" DataSetColumn="FechaFactura" />
+              <Mapping SourceColumn="NombreCliente" DataSetColumn="NombreCliente" />
+              <Mapping SourceColumn="CantProductos" DataSetColumn="CantProductos" />
+              <Mapping SourceColumn="Descripcion" DataSetColumn="Descripcion" />
+              <Mapping SourceColumn="Precio" DataSetColumn="Precio" />
+              <Mapping SourceColumn="SubTotalFactura" DataSetColumn="SubTotalFactura" />
+              <Mapping SourceColumn="TotalFactura" DataSetColumn="TotalFactura" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsFacturas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dsFacturas" msprop:Generator_DataSetName="dsFacturas">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="vFacturas" msprop:Generator_RowEvHandlerName="vFacturasRowChangeEventHandler" msprop:Generator_RowDeletedName="vFacturasRowDeleted" msprop:Generator_RowDeletingName="vFacturasRowDeleting" msprop:Generator_RowEvArgName="vFacturasRowChangeEvent" msprop:Generator_TablePropName="vFacturas" msprop:Generator_RowChangedName="vFacturasRowChanged" msprop:Generator_RowChangingName="vFacturasRowChanging" msprop:Generator_TableClassName="vFacturasDataTable" msprop:Generator_RowClassName="vFacturasRow" msprop:Generator_TableVarName="tablevFacturas" msprop:Generator_UserTableName="vFacturas">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NoFactura" msprop:Generator_ColumnPropNameInRow="NoFactura" msprop:Generator_ColumnPropNameInTable="NoFacturaColumn" msprop:Generator_ColumnVarNameInTable="columnNoFactura" msprop:Generator_UserColumnName="NoFactura" type="xs:int" />
+              <xs:element name="FechaFactura" msprop:Generator_ColumnPropNameInRow="FechaFactura" msprop:Generator_ColumnPropNameInTable="FechaFacturaColumn" msprop:Generator_ColumnVarNameInTable="columnFechaFactura" msprop:Generator_UserColumnName="FechaFactura" type="xs:dateTime" />
+              <xs:element name="NombreCliente" msprop:Generator_ColumnPropNameInRow="NombreCliente" msprop:Generator_ColumnPropNameInTable="NombreClienteColumn" msprop:Generator_ColumnVarNameInTable="columnNombreCliente" msprop:Generator_UserColumnName="NombreCliente">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CantProductos" msprop:Generator_ColumnPropNameInRow="CantProductos" msprop:Generator_ColumnPropNameInTable="CantProductosColumn" msprop:Generator_ColumnVarNameInTable="columnCantProductos" msprop:Generator_UserColumnName="CantProductos" type="xs:int" />
+              <xs:element name="Descripcion" msprop:Generator_ColumnPropNameInRow="Descripcion" msprop:Generator_ColumnPropNameInTable="DescripcionColumn" msprop:Generator_ColumnVarNameInTable="columnDescripcion" msprop:Generator_UserColumnName="Descripcion">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Precio" msprop:Generator_ColumnPropNameInRow="Precio" msprop:Generator_ColumnPropNameInTable="PrecioColumn" msprop:Generator_ColumnVarNameInTable="columnPrecio" msprop:Generator_UserColumnName="Precio" type="xs:decimal" />
+              <xs:element name="SubTotalFactura" msprop:Generator_ColumnPropNameInRow="SubTotalFactura" msprop:Generator_ColumnPropNameInTable="SubTotalFacturaColumn" msprop:Generator_ColumnVarNameInTable="columnSubTotalFactura" msprop:Generator_UserColumnName="SubTotalFactura" type="xs:decimal" />
+              <xs:element name="TotalFactura" msprop:Generator_ColumnPropNameInRow="TotalFactura" msprop:Generator_ColumnPropNameInTable="TotalFacturaColumn" msprop:Generator_ColumnVarNameInTable="columnTotalFactura" msprop:Generator_UserColumnName="TotalFactura" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

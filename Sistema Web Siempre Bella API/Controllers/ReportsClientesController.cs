@@ -16,7 +16,7 @@ namespace Sistema_Web_Siempre_Bella_API.Controllers
             _dBServices = dBServices;
         }
 
-        [HttpGet("Clientes")]
+        [HttpGet("Clientes-pdf")]
         public IActionResult ObtenerDatosClientes()
         {
             var dt = _dBServices.ObtenerDatosClientes();
@@ -28,7 +28,7 @@ namespace Sistema_Web_Siempre_Bella_API.Controllers
 
             var result = report.Execute(RenderType.Pdf);
 
-            return File(result.MainStream, "application/pdf");
+            return File(result.MainStream, "application/pdf", "Clientes_.pdf");
         }
     }
 }

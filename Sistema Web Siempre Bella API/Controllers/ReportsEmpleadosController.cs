@@ -17,7 +17,7 @@ namespace Sistema_Web_Siempre_Bella_API.Controllers
             _dBServices = dBServices;
         }
 
-        [HttpGet("Empleados")]
+        [HttpGet("Empleados-pdf")]
         public IActionResult ObtenerDatosUsuarios()
         {
             var dt = _dBServices.ObtenerDatosUsuarios();
@@ -29,7 +29,7 @@ namespace Sistema_Web_Siempre_Bella_API.Controllers
 
             var result = report.Execute(RenderType.Pdf);
 
-            return File(result.MainStream, "application/pdf");
+            return File(result.MainStream, "application/pdf", "Empleados_.pdf");
         }
 
 

@@ -8,6 +8,10 @@ using Sistema_Web_Siempre_Bella_API.Models;
 using System.Data;
 using System.Data.SqlClient;
 
+using Microsoft.Data.SqlClient;
+using SqlConnection = Microsoft.Data.SqlClient.SqlConnection;
+using SqlCommand = Microsoft.Data.SqlClient.SqlCommand;
+
 namespace Sistema_Web_Siempre_Bella_API.Controllers
 {
     [EnableCors("ReglasCors")]
