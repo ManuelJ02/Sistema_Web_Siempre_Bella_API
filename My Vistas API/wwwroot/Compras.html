@@ -3,70 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Realizar Compra</title>
-    <link rel="stylesheet" href="css/Compras.css">
+    <title>Detalle de Pedido</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label, input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+            input[type="number"], input[type="text"], input[type="submit"] {
+                padding: 8px;
+                font-size: 14px;
+                margin-top: 5px;
+            }
+
+            input[type="submit"] {
+                background-color: #28a745;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+
+                input[type="submit"]:hover {
+                    background-color: #218838;
+                }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+            .button-container button {
+                padding: 10px 20px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+
+                .button-container button:hover {
+                    background-color: #0056b3;
+                }
+
+        .result-container {
+            margin-top: 20px;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Realizar Compra</h1>
-    </header>
-    <main class="compras-container">
-        <section class="form-section">
-            <h2>Formulario de Compra</h2>
-            <form id="formCompra">
-                <label for="proveedor">Proveedor:</label>
-                <select id="proveedor" required>
-                    <option value="">Selecciona un proveedor</option>
-                    <option value="ACESO COSMETICS A.S.">ACESO COSMETICS A.S.</option>
-                    <option value="QOGITA">QOGITA</option>
-                    <option value="Amelia Cosmetics Distribuciones">Amelia Cosmetics Distribuciones</option>
-                </select>
+    <div class="container">
+        <h1>Detalle de Pedido</h1>
 
-                <label for="producto">Producto:</label>
-                <select id="producto" required>
-                    <option value="">Selecciona un producto</option>
-                    <option value="Lapiz labial Color Rojo">Lapiz labial Color Rojo</option>
-                    <option value="Delineador de ojos">Delineador de ojos</option>
-                    <option value="Máscara de pestañas">Máscara de pestañas</option>
-                    <option value="Lápiz de contorno de labios">Lápiz de contorno de labios</option>
-                    <option value="Protector solar en Crema 50 FPS 50ml">Protector solar en Crema 50 FPS 50ml</option>
-                </select>
+        <!-- Formulario para agregar un nuevo detalle de pedido -->
+        <form id="formGuardarDetalle">
+            <label for="cantidadProductos">Cantidad de Productos:</label>
+            <input type="number" id="cantidadProductos" name="cantidadProductos" required>
 
-                <label for="cantidad">Cantidad:</label>
-                <input type="number" id="cantidad" required min="1">
+            <label for="idProducto">ID del Producto:</label>
+            <input type="number" id="idProducto" name="idProducto" required>
 
-                <label for="precio">Precio:</label>
-                <input type="number" id="precio" required step="0.01" min="0">
+            <label for="subtotalPedido">Subtotal del Pedido:</label>
+            <input type="number" id="subtotalPedido" name="subtotalPedido" required>
 
-                <button id="registrarCompra">Agregar Producto</button>
-                <button id="Comprar">realizar Compra</button>
+            <label for="noPedido">Número de Pedido:</label>
+            <input type="number" id="noPedido" name="noPedido" required>
 
-            </form>
-        </section>
+            <input type="submit" value="Guardar Detalle de Pedido">
+        </form>
 
-        <section class="compras-history">
-            <h2>Historial de Compras</h2>
-            <table id="comprasTable">
-                <thead>
-                    <tr>
-                        <th>Proveedor</th>
-                        <th>Producto</th>
-                        <th>Cantidad</th>
-                        <th>Precio</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Se llenará con JS -->
-                </tbody>
-            </table>
-        </section>
-    </main>
+        <!-- Botones para listar detalles y editar un detalle -->
+        <div class="button-container">
+            <button onclick="obtenerDetallesPedido()">Obtener Todos los Detalles</button>
+            <button onclick="obtenerDetallePorID()">Obtener Detalle por ID</button>
+        </div>
 
-    <footer>
-        <p>&copy; 2024 Siempre Bella. Todos los derechos reservados.</p>
-    </footer>
+        <!-- Contenedor para mostrar resultados de las operaciones -->
+        <div class="result-container" id="resultados">
+            <h3>Resultados:</h3>
+            <pre id="resultadosTexto"></pre>
+        </div>
+    </div>
 
-    <script src="js/Compras.js"></script>
+    <script>
+        // Función para obtener todos los detalles de pedido
+        async function obtenerDetallesPedido() {
+            try {
+                const response = await fetch('https://localhost:7120/api/DetallePedido/Lista', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Error al obtener la lista de detalles del pedido');
+                }
+
+                const datos = await response.json();
+                document.getElementById('resultadosTexto').textContent = JSON.stringify(datos, null, 2);
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error al obtener los detalles del pedido');
+            }
+        }
+
+        // Función para obtener un detalle de pedido específico por ID
+        async function obtenerDetallePorID() {
+            const idDetallePedido = prompt('Introduce el ID del detalle de pedido:');
+            if (!idDetallePedido) return;
+
+            try {
+                const response = await fetch(`https://localhost:7120/api/DetallePedido/Obtener/${idDetallePedido}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Error al obtener el detalle del pedido');
+                }
+
+                const detalle = await response.json();
+                document.getElementById('resultadosTexto').textContent = JSON.stringify(detalle, null, 2);
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error al obtener el detalle del pedido');
+            }
+        }
+
+        // Función para guardar un nuevo detalle de pedido
+        document.getElementById('formGuardarDetalle').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const cantidadProductos = document.getElementById('cantidadProductos').value;
+            const idProducto = document.getElementById('idProducto').value;
+            const subtotalPedido = document.getElementById('subtotalPedido').value;
+            const noPedido = document.getElementById('noPedido').value;
+
+            const datosDetalle = {
+                CantidadProductos: parseInt(cantidadProductos),
+                IDProducto: parseInt(idProducto),
+                SubtotalPedido: parseFloat(subtotalPedido),
+                NoPedido: parseInt(noPedido)
+            };
+
+            try {
+                const response = await fetch('https://localhost:7120/api/DetallePedido/Guardar', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(datosDetalle)
+                });
+
+                if (!response.ok) {
+                    throw new Error('Error al guardar el detalle del pedido');
+                }
+
+                const resultado = await response.json();
+                document.getElementById('resultadosTexto').textContent = 'Detalle guardado con éxito: ' + JSON.stringify(resultado, null, 2);
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error al guardar el detalle del pedido');
+            }
+        });
+    </script>
 </body>
 </html>
